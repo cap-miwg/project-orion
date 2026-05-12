@@ -223,12 +223,15 @@ function addonRow(kit, a) {
   const scalingNote = a.scalingRule
     ? `<span class="lbl-desc" style="color:var(--soft);"><em>${a.scalingRule.note}</em></span>`
     : '';
+  const limitText = (state.qty[kit.id] === 0)
+    ? `<em>add ${kit.name} first</em>`
+    : `max ${max}`;
   return `
     <div class="calc-row addon-row" data-parent="${kit.id}">
       <div class="label">
         <span class="lbl-name">${a.name}${tag}</span>
         <span class="lbl-desc">${a.desc}</span>
-        <span class="lbl-desc"><strong style="color:var(--navy);">${priceLine}</strong> · max ${max}</span>
+        <span class="lbl-desc"><strong style="color:var(--navy);">${priceLine}</strong> · <span class="addon-limit">${limitText}</span></span>
         ${scalingNote}
       </div>
       <div class="qty-control" data-target="addon-${a.id}">
@@ -268,7 +271,7 @@ function onQtyChange(kitId, v) {
   // Update each add-on's max cap inline (no full re-render → preserves focus).
   const kit = KITS.find(k => k.id === kitId);
   kit.addons.forEach(a => {
-    const newMax = v * addonPerKitMax(a);
+    const newMax = addonAbsoluteMax(kit, a);
     if (state.addonQty[a.id] > newMax) state.addonQty[a.id] = newMax;
     const input = document.getElementById('addon-' + a.id);
     if (input) {
@@ -277,8 +280,12 @@ function onQtyChange(kitId, v) {
       input.disabled = newMax === 0;
       const wrap = input.closest('.qty-control');
       wrap.querySelectorAll('.qty-btn').forEach(b => { b.disabled = newMax === 0; });
-      const desc = wrap.parentElement.querySelector('.label .lbl-desc:nth-of-type(2)');
-      if (desc) desc.innerHTML = desc.innerHTML.replace(/max \d+/, 'max ' + newMax);
+      const limit = wrap.parentElement.querySelector('.addon-limit');
+      if (limit) {
+        limit.innerHTML = (v === 0)
+          ? `<em>add ${kit.name} first</em>`
+          : `max ${newMax}`;
+      }
     }
   });
   recalc();
