@@ -28,7 +28,7 @@
     <div>
       <div class="hero-label">Aircraft Node · Kit 005 · Concept</div>
       <h1>ORION<br>AIR<span class="dot">.</span></h1>
-      <p class="deck"><strong>The aircraft node.</strong> Live aerial imagery and TAK position, downlinked while airborne.</p>
+      <p class="deck"><strong>The aircraft node.</strong> Internet to the aircrew — for imagery uplink, onboard systems, and whatever comes next.</p>
     </div>
     <svg class="hero-constellation" viewBox="0 0 240 240" aria-hidden="true">
       <g stroke="rgba(255,205,0,0.45)" stroke-width="0.6" fill="none"><line x1="50" y1="40" x2="190" y2="55"/><line x1="50" y1="40" x2="100" y2="120"/><line x1="190" y1="55" x2="140" y2="125"/><line x1="100" y1="120" x2="120" y2="125"/><line x1="120" y1="125" x2="140" y2="125"/><line x1="100" y1="120" x2="60" y2="210"/><line x1="140" y1="125" x2="200" y2="200"/></g>
@@ -38,7 +38,7 @@
   </div>
 
   <div class="lead-band">
-    <p>ORION-Air is on the architecture's roadmap, not yet under active procurement. <strong>The concept anticipates in-flight Starlink, aircrew TAK, and HDMI capture from existing imaging gear so search aircraft can stream position and imagery back to the mission base in real time.</strong> A handful of open questions need resolution before any procurement commitment.</p>
+    <p>The core idea is simple: <strong>get internet to the aircrew.</strong> Whatever else the aircraft does — uploading imagery in flight, supporting onboard video gear, or running mission applications that need a connection — that all rides on this one foundation. Everything beyond that is conceptual and still being thought through.</p>
     <div class="signoff"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary</span></div>
   </div>
 </header>
@@ -47,36 +47,35 @@
   <div class="band-inner">
     <div class="kicker">Concept Maturity</div>
     <h2>Anticipated, <strong>not committed.</strong></h2>
-    <p class="lead">ORION-Air is included in the architecture because the design should anticipate it, not because it is ready to procure. Pricing is intentionally absent from the calculator. The kit will be specified with confidence once the open questions below are answered.</p>
+    <p class="lead">ORION-Air is in the architecture because the design should anticipate it, not because it is ready to procure. Pricing is intentionally absent from the calculator. The kit will be specified once the questions below have answers.</p>
 
     <div class="opex-strip" style="margin-top: 1.4rem;">
       <div class="opex-card">
-        <div class="kicker">Notional Components</div>
-        <h4>What it would include</h4>
+        <div class="kicker">What It Solves</div>
+        <h4>Internet to the aircrew</h4>
         <div class="lines">
-          Starlink Mini or equivalent terminal, mounted for the airframe<br>
-          UniFi Express or similar compact router<br>
-          Aircrew TAK tablet, charging dock, mount<br>
-          HDMI capture from existing imaging gear<br>
-          Power conditioning for the aircraft bus
+          The foundation is a working data connection in the cockpit. From there:<br><br>
+          • Uploading imagery while the aircraft is still airborne, instead of waiting until landing<br>
+          • Supporting on-board video or other systems that need internet access<br>
+          • Potentially giving pilots real-time data when cellular coverage fails — though that use case still needs operational discussion
         </div>
       </div>
       <div class="opex-card">
-        <div class="kicker">Service-Plan Reality</div>
-        <h4>The economics question</h4>
+        <div class="kicker">Service-Plan Speed</div>
+        <h4>Starlink Mini in motion</h4>
         <div class="lines">
-          Starlink Mini's plan tiers vary with ground speed. Above ~100 mph, in-motion service is billed at a higher rate.<br><br>
-          CAP search aircraft transit above that threshold, then slow to 90-110 knots once on station. Plan economics depend on the transit-vs-station ratio — this should be modeled before any recurring commitment.
+          Starlink Mini's in-motion service is rated up to roughly <strong>480 km/h (about 300 mph)</strong>. Typical CAP mission profiles — transit and grid-search alike — stay well below that ceiling, so the speed cap shouldn't constrain ORION-Air operation.<br><br>
+          The remaining service-plan questions are about plan tier and cost, not airspeed.
         </div>
       </div>
       <div class="opex-card">
         <div class="kicker">Open Questions</div>
-        <h4>Resolve before procuring</h4>
+        <h4>Still being thought through</h4>
         <div class="lines">
-          Airframe mounting approach (per CAP airworthiness)<br>
-          In-motion service-plan economics for SAR profiles<br>
-          Integration with existing CAP avionics &amp; sensors<br>
-          Antenna placement &amp; signal interference
+          • How does this build out across the fleet of aircraft?<br>
+          • What problem does it solve well enough to justify the integration cost?<br>
+          • Mounting approach for each airframe, per airworthiness guidance<br>
+          • Real-time-data-for-pilots use case — when is that the right answer vs. a cellular fallback?
         </div>
         <div class="note">Tracked alongside the architecture's other open design questions.</div>
       </div>
@@ -86,7 +85,7 @@
       <div class="pitch">
         <div class="kicker">Status</div>
         <h3>Concept only. <span class="alt">No procurement activity.</span></h3>
-        <p>No procurement decisions, no recurring service commitments, and no airworthiness applications are in progress for ORION-Air. The architecture is documented so the kit can be specified rapidly once the open questions are resolved.</p>
+        <p>No procurement decisions, recurring service commitments, or airworthiness applications are in progress for ORION-Air. The architecture is documented so the kit can be specified rapidly once the operational questions have answers.</p>
       </div>
       <div class="card">
         <div class="kicker">Point of Contact</div>
