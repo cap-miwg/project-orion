@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture — Project ORION</title>
+<meta name="description" content="The ORION architecture: federated mesh topology, addressing plan, dial plan, TAK federation, and the path to national scale.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-brand"><span class="star">★</span><span>Project <span class="mark">ORION</span></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="./">Overview</a></li>
+      <li><a href="kits/">The Kits</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="page-head-inner">
+    <div class="crumb"><a href="./" style="color: var(--silver);">Home</a> <span class="sep">/</span> <span class="here">Architecture</span></div>
+    <h1>THE <span class="alt">ARCHITECTURE</span></h1>
+    <p class="deck">Nodes, kits, and add-ons. Federated topology. One IP plan, one dial plan, one Wi-Fi credential.</p>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="prose">
+
+      <div class="kicker">Vision &amp; Operating Concept</div>
+      <h2>One network. <strong>Every mission.</strong></h2>
+      <p>Project ORION is a standardized, modular network architecture for Civil Air Patrol field operations. Its purpose is to give every mission, in every environment, a single coherent network that connects the communications trailer, mission base, vehicles, aircraft, and field teams under one logical fabric.</p>
+      <p>Civil Air Patrol's voice and radio communications capabilities are mature. The data side has not kept pace. Mission staff routinely improvise connectivity using personal hotspots, member-owned devices, and ad hoc networks that vary from one mission to the next. ORION closes that gap with a deliberate, repeatable infrastructure that any Wing can deploy and any member can support.</p>
+
+      <blockquote><strong>Design priority:</strong> ORION is built for availability first. CAP missions live or die on whether the network works when staff arrive on-scene, often in degraded conditions. Every architectural decision defers to that priority.</blockquote>
+
+      <h3>The five operating principles</h3>
+      <ul>
+        <li><strong>Modular by default.</strong> Each kit functions standalone and meshes seamlessly with others when colocated.</li>
+        <li><strong>One ecosystem.</strong> UniFi for the network plane, Starlink for the WAN backhaul, with no recurring license fees on the management plane.</li>
+        <li><strong>Federation, not centralization.</strong> Each Wing runs its own controller and TAK server. All Wings use the same address scheme, dial plan, and naming so they can interoperate during multi-Wing missions.</li>
+        <li><strong>Field-replaceable hardware.</strong> Commercial off-the-shelf components, no proprietary bus, no vendor lock-in beyond a single network family.</li>
+        <li><strong>Volunteer-supportable.</strong> If a member with reasonable IT comfort cannot deploy or troubleshoot the kit, the design has failed.</li>
+      </ul>
+
+      <h2 id="framework">Nodes, kits, and add-ons</h2>
+      <p>ORION uses three nested concepts:</p>
+      <ul>
+        <li><strong>Node.</strong> A physical site or platform that participates in the network (the trailer, a van, the Wing HQ, an aircraft, a mission base building). Every node has a stable identity in the address scheme.</li>
+        <li><strong>Kit.</strong> The standardized hardware bundle that turns a location or platform into a node. Kits ship as a defined parts list, a defined cost, and a defined deployment procedure.</li>
+        <li><strong>Add-on.</strong> An optional capability that extends a base kit (drone video uplink, direction finding, radio-over-IP gateways). Add-ons attach to a kit's existing power, network, and management plane.</li>
+      </ul>
+      <p>This separation matters because it lets the program grow in two dimensions independently. New nodes expand coverage. New add-ons expand capability. A unit can fund a Fleet kit this year and add direction finding next year without re-architecting anything.</p>
+
+      <h3 id="naming">Naming convention</h3>
+      <p>Every kit is named <code>ORION-[Role]</code>. The word "node" is reserved as a generic concept that applies to every deployed kit.</p>
+    </div>
+
+    <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Kit</th><th>Role</th><th>Maturity</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ORION-Core</strong></td><td>Wing HQ primary controller, federation point, identity anchor</td><td>Procurement in progress</td></tr>
+        <tr><td><strong>ORION-Trailer</strong></td><td>Communications trailer node (rapid-deploy mobile core)</td><td>Field tested</td></tr>
+        <tr><td><strong>ORION-Base</strong></td><td>Mission base extension kit for staff operations in a building</td><td>Proposed; build pending</td></tr>
+        <tr><td><strong>ORION-Fleet</strong></td><td>Vehicle node base kit (Starlink Mini, gateway, install)</td><td>Proposed; build pending</td></tr>
+        <tr><td><strong>ORION-Air</strong></td><td>Aircraft node for in-flight connectivity and imagery</td><td>Concept</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="band-inner">
+    <div class="prose">
+      <div class="kicker">System Architecture</div>
+      <h2 id="topology">Federated mesh, <strong>not hub-and-spoke.</strong></h2>
+      <p>ORION uses a federated mesh topology. There is a primary controller (ORION-Core at Wing HQ), but every other kit is also a fully functional standalone island. When kits colocate, their wireless networks mesh and their internet uplinks can share load. When kits are isolated, each one is sufficient on its own.</p>
+
+      <h3>The practical effect</h3>
+      <ul>
+        <li>A van with a Fleet kit can operate alone in the middle of nowhere using only its own Starlink Mini.</li>
+        <li>That same van, parked next to the trailer, mesh-extends the trailer's wireless coverage. Its uplink can serve as a redundant path if the trailer's primary uplink degrades.</li>
+        <li>If the trailer goes offline entirely, mission base staff connected through it fall back to the next-best uplink in the mesh, including any colocated vehicle or independent ORION-Base.</li>
+      </ul>
+
+      <h3 id="national">National hierarchy &amp; federation</h3>
+      <p>If ORION proves out at Wing level, the architecture anticipates national scaling. The recommended hierarchy:</p>
+      <ul>
+        <li><strong>National (CAP-USAF or NHQ).</strong> Optional national TAK federation hub, optional national multi-site UniFi controller, IP allocation authority. Not required for any individual Wing to operate.</li>
+        <li><strong>Wing.</strong> ORION-Core at Wing HQ. Owns Wing IP space, Wing TAK server, Wing dial plan.</li>
+        <li><strong>Mission / Squadron.</strong> Deployed kits (Trailer, Base, Fleet, Air). Adopt to the Wing controller, federate to the Wing TAK server.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="prose">
+      <div class="kicker">Addressing &amp; Operator Experience</div>
+      <h2 id="addressing">Two SSIDs, one credential. <strong>Everything else is plumbing.</strong></h2>
+      <p>ORION uses a uniform addressing plan so two Wings deploying together never collide, but the operator-visible reality is intentionally simple. Two Wi-Fi networks: one mission, one guest. Members and corporate-owned devices use the mission network. Visitors and bring-your-own personal devices use guest.</p>
+
+      <h3>The cross-Wing address plan</h3>
+      <p>Set once at the Wing level, never touched in the field: <code>10.0.0.0/8</code> private space, allocated as <code>10.[wing].[node-type].[host]</code>. Wing identifier uses the FIPS state code (Michigan = 26, Ohio = 39, California = 06) so allocations are deterministic and never overlap.</p>
+    </div>
+
+    <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Subnet (Michigan example)</th><th>Allocation</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="subnet">10.26.0.0/24</td><td>ORION-Core (Wing HQ infrastructure)</td><td>Controllers, voice system, servers</td></tr>
+        <tr><td class="subnet">10.26.1.0/24</td><td>ORION-Trailer</td><td>Single trailer node</td></tr>
+        <tr><td class="subnet">10.26.10.0/24 — 10.26.29.0/24</td><td>ORION-Fleet vehicles</td><td>One /24 per vehicle</td></tr>
+        <tr><td class="subnet">10.26.30.0/24 — 10.26.49.0/24</td><td>ORION-Base mission base kits</td><td>One /24 per simultaneous deployment</td></tr>
+        <tr><td class="subnet">10.26.100.0/24 — 10.26.149.0/24</td><td>ORION-Air aircraft nodes</td><td>One /24 per aircraft</td></tr>
+        <tr><td class="subnet">10.26.250.0/24 — 10.26.255.0/24</td><td>Reserved (lab, federation links)</td><td>Site-to-site VPN, transit</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="prose">
+      <h3>Operator experience</h3>
+      <p>Members do not need to understand any of this in the field. They join the mission Wi-Fi with a single SSID and password. Their laptop, tablet, or phone gets an address automatically and can reach mission resources (TAK, file share, printer, dashboards) without further configuration. Voice phones and cameras provision themselves through the controller. The IP plan exists so the network keeps working when two Wings deploy together — not so an operator has to think about it.</p>
+
+      <h3>Roaming &amp; guest behavior</h3>
+      <p>A device on the mission network walking from the trailer into a colocated ORION-Base reconnects automatically because both kits broadcast the same SSID and credentials. The guest network operates on its own dedicated IP range with a captive portal, and provides internet access only — no path to mission resources, file shares, cameras, or the voice system.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="band-inner">
+    <div class="prose">
+      <div class="kicker">Cross-Cutting Services</div>
+      <h2 id="voice">Unified voice. <strong>Four digits, role-aware.</strong></h2>
+      <p>Every VoIP phone in the Wing is on the same Wing-level voice system, hosted at ORION-Core. Within a Wing, members dial four digits to reach any other phone. The number plan is structured so the role and location of an extension are recognizable at a glance.</p>
+    </div>
+
+    <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Range</th><th>Role</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">1xxx</td><td>Wing HQ phones</td><td>1100 main, 1101 director of operations</td></tr>
+        <tr><td class="mono">2xxx</td><td>ORION-Trailer phones</td><td>2001 front station, 2002 radio operator</td></tr>
+        <tr><td class="mono">3xxx</td><td>ORION-Base mission base staff</td><td>3001 IC, 3002 OPS, 3003 PLANS, 3004 LOGS, 3005 FINANCE, 3006 PIO, 3007 AOBD, 3008 GBD</td></tr>
+        <tr><td class="mono">4xxx</td><td>Squadron headquarters phones</td><td>—</td></tr>
+        <tr><td class="mono">9xxx</td><td>Conference bridges, paging, PSTN</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="prose">
+      <p><strong>Why this matters.</strong> During a mission, an OPS section chief working from home can dial extension 3002 and reach the on-scene OPS phone regardless of which physical handset is in use, because the extension follows the role, not the hardware.</p>
+      <p><strong>Inter-Wing dialing.</strong> When two or more Wings federate, the dial plan extends with a Wing prefix. A Michigan member dialing <code>26-3001</code> reaches Michigan Wing's mission base IC. A Wisconsin member dialing <code>55-3001</code> reaches Wisconsin Wing's.</p>
+
+      <h2 id="tak">TAK federation: cloud primary + edge</h2>
+      <p>ORION's recommended TAK deployment is federated rather than centralized.</p>
+    </div>
+
+    <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Layer</th><th>Function</th><th>Hosted</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Wing primary takserver</strong></td><td>Always-on; authoritative source for Wing-wide tracking and shared maps</td><td>Cloud (AWS Lightsail or similar, ~$20-$40/mo)</td></tr>
+        <tr><td><strong>Edge takservers</strong></td><td>Low-latency local server; serves on-site clients even if WAN drops</td><td>On NUCs already specified in ORION-Trailer and ORION-Base</td></tr>
+        <tr><td><strong>National federation hub</strong></td><td>Optional, future; ties Wing primary takservers together for multi-Wing missions</td><td>National infrastructure or designated lead Wing</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="prose">
+      <p>The cloud primary covers everyone, always. Edge servers absorb the latency and resilience problem that pure-cloud TAK would create when a remote mission's Starlink uplink hiccups. Clients connect to whichever is closest. Data syncs automatically when both are online.</p>
+
+      <h2 id="wireless">Wireless standards &amp; member devices</h2>
+      <p>Two SSIDs per kit. <code>CAP-MIWG</code> is the mission network for members and corporate-owned devices. <code>CAP-MIWG-Guest</code> is for partner agencies, public, and untrusted devices. Identical SSIDs across every kit so member devices roam without intervention as the network grows. Each Wing's SSID embeds its identifier so colocated Wings can both broadcast without confusing clients. WPA3 where supported, WPA2-AES otherwise.</p>
+      <p>CAP is a volunteer organization. Members bring their own laptops, tablets, and phones to missions. The architecture treats this as the norm, not the exception. A member with a personal laptop should be able to join the mission network, reach TAK, the file share, the Wing intranet, and the printer — without any field configuration beyond the Wi-Fi password.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="prose">
+      <div class="kicker">Maturity &amp; Field Validation</div>
+      <h2 id="maturity">A mix of <strong>validated, proposed, and conceptual.</strong></h2>
+      <p>ORION is a mix of field-tested, proposed, and conceptual capabilities. Honesty about where each kit sits matters for funding decisions.</p>
+    </div>
+
+    <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Kit / Capability</th><th>Maturity</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ORION-Trailer</strong></td><td>Field tested. Stable wireless coverage across an airport apron at −40 to −70 dBm. Throughput: 51-96 Mbps down, 6-23 Mbps up wireless; 142 Mbps wired baseline. Voice, video (PTZ), and laptop traffic ran simultaneously without contention. Replaced four cellular hotspots with one managed SSID and one managed LAN.</td></tr>
+        <tr><td><strong>ORION-Core</strong></td><td>Procurement in progress at Wing HQ. First opportunity to validate inter-kit federation.</td></tr>
+        <tr><td><strong>ORION-Fleet</strong></td><td>Proposed; build pending. Phase 1 proof-of-concept on a single vehicle is the next planned validation step.</td></tr>
+        <tr><td><strong>ORION-Base</strong></td><td>Proposed; build pending. Validation when the first kit is fielded at a quarterly Wing exercise.</td></tr>
+        <tr><td><strong>ORION-Air</strong></td><td>Concept only. No validation until open questions are resolved.</td></tr>
+        <tr><td><strong>Mesh between kits</strong></td><td>Not yet validated. Requires at least two ORION kits colocated. First opportunity is when ORION-Fleet Phase 1 is complete.</td></tr>
+        <tr><td><strong>Federated TAK</strong></td><td>Not yet validated. Requires the cloud primary and at least one edge server to be operational.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="band-inner">
+    <div class="prose">
+      <div class="kicker">Path Forward</div>
+      <h2 id="path">Grassroots → Wing → <strong>National line item.</strong></h2>
+      <p>ORION is best funded as a grassroots program that earns its way into a sustainable line item.</p>
+      <ul>
+        <li><strong>Phase 1 (now).</strong> Wing and Region funds underwrite the proof of concept. ORION-Core stands up at Wing HQ, the trailer is upgraded, the first vehicle is built out, and the first Mission Base Kit is fielded.</li>
+        <li><strong>Phase 2.</strong> As results accumulate, National HQ is brought into the conversation. Documented field outcomes, metrics, and member feedback build the case that ORION is worth scaling beyond a single Wing.</li>
+        <li><strong>Phase 3.</strong> Make the case to the Air Force. Once ORION has demonstrated mission value across multiple deployments, request a budgeted line item in the CAP-USAF annual budget.</li>
+      </ul>
+
+      <h3 id="cyber">Cybersecurity posture</h3>
+      <p>ORION is designed by a cybersecurity professional and follows industry best practices: password rotation, firmware patching, segmented guest access, managed firewalls. CAP missions are not classified environments. The architecture accepts the risk profile appropriate to volunteers serving their communities, in support of search and rescue, disaster relief, and similar work.</p>
+
+      <h3 id="sequence">Sequence of moves</h3>
+      <ol>
+        <li>Stand up ORION-Core at Wing HQ. Highest-leverage move — every kit's management plane and dial plan depends on it.</li>
+        <li>Complete the ORION-Trailer upgrade. Use it to validate cross-cutting services (TAK, voice, signage, cameras) end-to-end before scaling.</li>
+        <li>Execute Phase 1 of ORION-Fleet on one vehicle. Document install spec, time, cost, lessons.</li>
+        <li>Stand up the cloud TAK primary; bring the trailer NUC online as the first edge takserver and validate federation.</li>
+        <li>Build the first ORION-Base kit and exercise it at the next quarterly Wing event.</li>
+        <li>Resolve the ORION-Air open questions before committing any procurement to that kit.</li>
+        <li>Document the Wing IP plan and dial plan, publish to all kit operators, apply consistently.</li>
+        <li>Build the CAP-USAF sustainment case from accumulated evidence so ORION lands in a future yearly budget as a line item.</li>
+      </ol>
+
+      <h2 id="open">Open design questions</h2>
+      <p>Unresolved and worth working through before the next round of procurement decisions.</p>
+      <ul>
+        <li><strong>ORION-Air feasibility.</strong> On the radar but not under active development. Further discussion required before any procurement.</li>
+        <li><strong>KrakenSDR direction-finding integration.</strong> The KrakenSDR-to-TAK integration is untested in our environment. A single-vehicle proof-of-concept will answer the core integration questions.</li>
+        <li><strong>Inter-Wing federation governance.</strong> If two Wings want to federate (shared TAK, cross-Wing dial plan, site-to-site VPN), who owns the federation agreement? National function, bilateral memo, or something else?</li>
+        <li><strong>Voice system inter-Wing interconnect.</strong> UniFi voice can interconnect via SIP, but the operational details across Wings (carrier, addressing, authentication, failover) need to be confirmed before the inter-Wing dial plan is published as supported.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="band-inner">
+    <div class="kicker">Next</div>
+    <h2 style="color: #fff;">Estimate a build, or <strong>download the brochures.</strong></h2>
+    <p class="lead">The calculator lets a Wing or sponsor estimate cost for any combination of kits and add-ons. The brochure pack contains the master overview plus one PDF per kit, ready to share or print.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="calculator.html">Open the Calculator →</a>
+      <a class="btn btn-secondary" href="downloads.html">Download Brochures</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><h5>Project ORION</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">A standardized network architecture for Civil Air Patrol field operations. Michigan Wing, Civil Air Patrol, U.S. Air Force Auxiliary.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="./">Overview</a></li><li><a href="kits/">The Kits</a></li><li><a href="architecture.html">Architecture</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="downloads.html">Downloads</a></li></ul></div>
+    <div><h5>Point of Contact</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">SMSgt Luke Bunge, CAP<br>Director of Information Technology<br>Michigan Wing Civil Air Patrol<br><a href="mailto:luke.bunge@miwg.cap.gov" style="color: var(--yellow);">luke.bunge@miwg.cap.gov</a></p></div>
+  </div>
+  <div class="footer-bottom"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary · 2026</span></div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

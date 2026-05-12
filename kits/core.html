@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORION-Core (Kit 001) — Project ORION</title>
+<meta name="description" content="The Wing HQ anchor. Always-on UniFi controller, voice system, and TAK home base.">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand"><span class="star">★</span><span>Project <span class="mark">ORION</span></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="../">Overview</a></li>
+      <li><a href="./">The Kits</a></li>
+      <li><a href="../architecture.html">Architecture</a></li>
+      <li><a href="../calculator.html">Calculator</a></li>
+      <li><a href="../downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Wing HQ Anchor · Kit 001</div>
+      <h1>ORION<br>CORE<span class="dot">.</span></h1>
+      <p class="deck"><strong>The Wing anchor.</strong> The always-on hub at headquarters. Where ORION begins.</p>
+    </div>
+    <svg class="hero-constellation" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="rgba(255, 205, 0, 0.45)" stroke-width="0.6" fill="none"><line x1="50" y1="40" x2="190" y2="55"/><line x1="50" y1="40" x2="100" y2="120"/><line x1="190" y1="55" x2="140" y2="125"/><line x1="100" y1="120" x2="120" y2="125"/><line x1="120" y1="125" x2="140" y2="125"/><line x1="100" y1="120" x2="60" y2="210"/><line x1="140" y1="125" x2="200" y2="200"/></g>
+      <g fill="rgba(255,205,0,0.15)"><circle cx="50" cy="40" r="11"/><circle cx="60" cy="210" r="11"/><circle cx="190" cy="55" r="8"/></g>
+      <g fill="#fff"><circle cx="50" cy="40" r="3.6"/><circle cx="190" cy="55" r="3.2"/><circle cx="100" cy="120" r="2.6"/><circle cx="120" cy="125" r="2.6"/><circle cx="140" cy="125" r="2.6"/><circle cx="60" cy="210" r="3.6"/><circle cx="200" cy="200" r="3.2"/></g>
+    </svg>
+  </div>
+
+  <div class="metrics">
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="num">24/7 <span class="unit">uptime</span></div>
+        <div class="label">Always-On</div>
+        <div class="desc">Persistent network, voice, and TAK while the trailer is offline.</div>
+      </div>
+      <div class="metric">
+        <div class="num">1 <span class="unit">number</span></div>
+        <div class="label">Wing Line</div>
+        <div class="desc">Single managed phone line with configurable call tree.</div>
+      </div>
+      <div class="metric">
+        <div class="num">$0 <span class="unit">/mo</span></div>
+        <div class="label">Added Monthly</div>
+        <div class="desc">Internet already paid at Wing HQ. Talk plan offset by eliminated Comcast modem rental.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lead-band">
+    <p>Rack it. Power it up. <strong>Always-on, the day it's installed.</strong> UniFi Talk for the Wing's managed phone number, the TAK server that stays awake between missions, Wi-Fi 6 for both offices, and the anchor node every other ORION kit federates back to. Pays for itself.</p>
+    <div class="signoff">
+      <span class="left">Volunteers Serving America's Communities</span>
+      <span>U.S. Air Force Auxiliary</span>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="bom-section">
+      <div class="bom-head">
+        <div class="kicker">Bill of Materials · One-Time Purchase</div>
+        <div class="meta">Retail-verified · USD · 2026</div>
+      </div>
+      <div class="bom-table-wrap">
+      <table class="bom-table">
+        <tr class="cat-row"><td colspan="3">WAN &amp; Connectivity</td></tr>
+        <tr class="item-row">
+          <td class="name">UniFi Cable Internet Appliance<span class="fn-inline">Replaces Comcast modem, eliminates rental fee</span></td>
+          <td class="qty">1 × $279</td><td class="total">$279</td>
+        </tr>
+        <tr class="subtotal-row"><td colspan="2" class="stl">Subtotal</td><td>$279</td></tr>
+
+        <tr class="cat-row"><td colspan="3">Core, Switching &amp; Power</td></tr>
+        <tr class="item-row">
+          <td class="name">UniFi Dream Machine SE<span class="fn-inline">All-in-one gateway, IDS/IPS, PoE switch, UniFi Talk host</span></td>
+          <td class="qty">1 × $499</td><td class="total">$499</td>
+        </tr>
+        <tr class="item-row">
+          <td class="name">UniFi UPS 2U Rackmount<span class="fn-inline">1.44 kVA managed UPS, graceful shutdown</span></td>
+          <td class="qty">1 × $279</td><td class="total">$279</td>
+        </tr>
+        <tr class="item-row">
+          <td class="name">Tabletop rack<span class="fn-inline">Open-frame desktop rack for the kit</span></td>
+          <td class="qty">1 × $50</td><td class="total">$50</td>
+        </tr>
+        <tr class="subtotal-row"><td colspan="2" class="stl">Subtotal</td><td>$828</td></tr>
+
+        <tr class="cat-row"><td colspan="3">Compute</td></tr>
+        <tr class="item-row repurposed">
+          <td class="name">Micro form-factor PC<span class="fn-inline">Initial TAK server; right-size after deployment</span></td>
+          <td class="qty">1 × repurposed</td><td class="total">$0</td>
+        </tr>
+        <tr class="subtotal-row"><td colspan="2" class="stl">Subtotal</td><td>$0</td></tr>
+
+        <tr class="cat-row"><td colspan="3">Wireless &amp; VoIP</td></tr>
+        <tr class="item-row">
+          <td class="name">UniFi U6 Mesh AP<span class="fn-inline">Wi-Fi 6 desktop-footprint AP, both offices</span></td>
+          <td class="qty">1 × $179</td><td class="total">$179</td>
+        </tr>
+        <tr class="item-row">
+          <td class="name">UniFi G3 Touch Pro<span class="fn-inline">VoIP phone, 5" touch, primary station</span></td>
+          <td class="qty">1 × $199</td><td class="total">$199</td>
+        </tr>
+        <tr class="subtotal-row"><td colspan="2" class="stl">Subtotal</td><td>$378</td></tr>
+
+        <tr class="cat-row"><td colspan="3">Cabling &amp; Accessories</td></tr>
+        <tr class="item-row">
+          <td class="name">Cabling &amp; accessories<span class="fn-inline">Patch cables, ends, surge protection, mounting</span></td>
+          <td class="qty">lot</td><td class="total">$110</td>
+        </tr>
+        <tr class="subtotal-row"><td colspan="2" class="stl">Subtotal</td><td>$110</td></tr>
+
+        <tr class="total-row">
+          <td colspan="2" class="total-label">TOTAL ONE-TIME COST</td>
+          <td class="total-value">$1,595</td>
+        </tr>
+        <tr class="total-note-row">
+          <td colspan="3">Hardware list price. Excludes tax, shipping &amp; handling. Pricing subject to current market conditions.</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="opex-strip">
+      <div class="opex-card">
+        <div class="kicker">Recurring · Monthly</div>
+        <h4>UniFi Talk Plus Plan</h4>
+        <div class="lines">3,000 minutes<br>50 SMS · 60 min txn</div>
+        <div class="price-feature">$9.99 <span class="price-suffix">/mo per line</span></div>
+      </div>
+      <div class="opex-card">
+        <div class="kicker">Optional · Add-On</div>
+        <h4>Second phone</h4>
+        <div class="lines">G3 Touch Pro phone<br>PoE injector adapter</div>
+        <div class="price-feature">+$207 <span class="price-suffix">one-time</span></div>
+      </div>
+      <div class="opex-card">
+        <div class="kicker">Excluded · Provided</div>
+        <h4>Out-of-scope assets</h4>
+        <div class="lines">Comcast Business Internet<br>Selfridge base phone<br>Wing computers &amp; laptops<br>Google Drive (primary storage)</div>
+        <div class="note">Already in service or out of scope. Not factored into the kit budget.</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="pitch">
+        <div class="kicker">Procurement</div>
+        <h3>Purchase-ready. <span class="alt">Verified pricing.</span></h3>
+        <p>Every line item above is sourced from current retail. Approve at the listed price and the kit can be procured at or below that figure from the listed vendors. To support a build, fund the kit, or replicate at another Wing, reach out.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Point of Contact</div>
+        <div class="name">SMSgt Luke Bunge, CAP</div>
+        <div class="role">Director of Information Technology<br>Michigan Wing Civil Air Patrol</div>
+        <div class="em"><a href="mailto:luke.bunge@miwg.cap.gov">luke.bunge@miwg.cap.gov</a></div>
+        <div class="cred">USAF Cyber Warfare Warrant Officer</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn-light" href="./">← All Kits</a>
+      <a class="btn btn-dark" href="../calculator.html">Estimate Your Build →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><h5>Project ORION</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">A standardized network architecture for Civil Air Patrol field operations. Michigan Wing, Civil Air Patrol, U.S. Air Force Auxiliary.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="../">Overview</a></li><li><a href="./">The Kits</a></li><li><a href="../architecture.html">Architecture</a></li><li><a href="../calculator.html">Calculator</a></li><li><a href="../downloads.html">Downloads</a></li></ul></div>
+    <div><h5>Point of Contact</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">SMSgt Luke Bunge, CAP<br>Director of Information Technology<br>Michigan Wing Civil Air Patrol<br><a href="mailto:luke.bunge@miwg.cap.gov" style="color: var(--yellow);">luke.bunge@miwg.cap.gov</a></p></div>
+  </div>
+  <div class="footer-bottom"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary · 2026</span></div>
+</footer>
+
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

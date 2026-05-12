@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Calculator — Project ORION</title>
+<meta name="description" content="Estimate the one-time and recurring cost of an ORION deployment. Pick kits, add-ons, and quantities — totals update live.">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-brand"><span class="star">★</span><span>Project <span class="mark">ORION</span></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="./">Overview</a></li>
+      <li><a href="kits/">The Kits</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="page-head-inner">
+    <div class="crumb"><a href="./" style="color: var(--silver);">Home</a> <span class="sep">/</span> <span class="here">Calculator</span></div>
+    <h1>BUILD <span class="alt">CALCULATOR</span></h1>
+    <p class="deck">Estimate your Wing's build. Pick kits, add-ons, and quantities. Totals update live.</p>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-inner">
+    <p class="lead">All pricing is retail-verified for 2026, in USD, before tax and shipping. <strong>ORION-Air</strong> is shown for reference but excluded from totals — see the <a href="kits/air.html">Air page</a> for open questions. Need a deeper breakdown? Each line item lives on the individual <a href="kits/">kit pages</a> or in the <a href="downloads.html">brochure PDFs</a>.</p>
+
+    <div class="calc-layout">
+      <div id="calc-kits"><!-- kit blocks rendered here --></div>
+
+      <aside class="calc-summary" aria-label="Build summary">
+        <h3>Your Build</h3>
+        <div id="calc-summary-lines">
+          <div class="calc-line empty"><span class="nm">No kits selected</span><span class="vl">—</span></div>
+        </div>
+
+        <div class="calc-totals">
+          <div class="calc-total headline">
+            <span class="nm">One-Time</span>
+            <span class="vl" id="total-onetime">$0</span>
+          </div>
+          <div class="calc-total monthly">
+            <span class="nm">Monthly</span>
+            <span class="vl" id="total-monthly">$0/mo</span>
+          </div>
+          <div class="calc-total">
+            <span class="nm">Year 1</span>
+            <span class="vl" id="total-year1">$0</span>
+          </div>
+          <div class="calc-total">
+            <span class="nm">3-Year</span>
+            <span class="vl" id="total-3year">$0</span>
+          </div>
+        </div>
+
+        <div class="calc-actions">
+          <button id="btn-print" type="button" class="btn btn-primary">Print Summary</button>
+          <button id="btn-reset" type="button" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <p class="calc-note">Year 1 = one-time + 12 months recurring. 3-Year = one-time + 36 months recurring. Hardware list prices; excludes tax, shipping, and any service install fees.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="band-inner">
+    <div class="kicker">How to Read This</div>
+    <h2>What the totals include — <strong>and what they don't.</strong></h2>
+    <div class="principles">
+      <div class="principle">
+        <h4>Included</h4>
+        <p>Every retail-priced hardware line from the kit BOMs, plus add-ons and required subscriptions (Starlink, UniFi Talk) at their listed monthly rates.</p>
+      </div>
+      <div class="principle">
+        <h4>Excluded</h4>
+        <p>Tax, shipping, optional professional install, items already provided by CAP (staff laptops, comms-trailer chassis, VHF radios, corporate Google Drive, etc.).</p>
+      </div>
+      <div class="principle">
+        <h4>Reproducible</h4>
+        <p>Approve at the calculator's number and a Wing can procure at or below that figure from the listed vendors. Pricing is current to 2026 retail.</p>
+      </div>
+      <div class="principle">
+        <h4>Air kit</h4>
+        <p>ORION-Air is shown as a concept and excluded from totals. Pricing depends on airframe-specific mounting and in-motion service plan economics still under study.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><h5>Project ORION</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">A standardized network architecture for Civil Air Patrol field operations. Michigan Wing, Civil Air Patrol, U.S. Air Force Auxiliary.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="./">Overview</a></li><li><a href="kits/">The Kits</a></li><li><a href="architecture.html">Architecture</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="downloads.html">Downloads</a></li></ul></div>
+    <div><h5>Point of Contact</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">SMSgt Luke Bunge, CAP<br>Director of Information Technology<br>Michigan Wing Civil Air Patrol<br><a href="mailto:luke.bunge@miwg.cap.gov" style="color: var(--yellow);">luke.bunge@miwg.cap.gov</a></p></div>
+  </div>
+  <div class="footer-bottom"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary · 2026</span></div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORION-Air (Kit 005) — Project ORION</title>
+<meta name="description" content="The aircraft node. In-flight connectivity for live aerial imagery and TAK tracking. Concept.">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand"><span class="star">★</span><span>Project <span class="mark">ORION</span></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="../">Overview</a></li>
+      <li><a href="./">The Kits</a></li>
+      <li><a href="../architecture.html">Architecture</a></li>
+      <li><a href="../calculator.html">Calculator</a></li>
+      <li><a href="../downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Aircraft Node · Kit 005 · Concept</div>
+      <h1>ORION<br>AIR<span class="dot">.</span></h1>
+      <p class="deck"><strong>The aircraft node.</strong> Live aerial imagery and TAK position, downlinked while airborne.</p>
+    </div>
+    <svg class="hero-constellation" viewBox="0 0 240 240" aria-hidden="true">
+      <g stroke="rgba(255,205,0,0.45)" stroke-width="0.6" fill="none"><line x1="50" y1="40" x2="190" y2="55"/><line x1="50" y1="40" x2="100" y2="120"/><line x1="190" y1="55" x2="140" y2="125"/><line x1="100" y1="120" x2="120" y2="125"/><line x1="120" y1="125" x2="140" y2="125"/><line x1="100" y1="120" x2="60" y2="210"/><line x1="140" y1="125" x2="200" y2="200"/></g>
+      <g fill="rgba(255,205,0,0.15)"><circle cx="50" cy="40" r="11"/><circle cx="60" cy="210" r="11"/><circle cx="190" cy="55" r="8"/></g>
+      <g fill="#fff"><circle cx="50" cy="40" r="3.6"/><circle cx="190" cy="55" r="3.2"/><circle cx="100" cy="120" r="2.6"/><circle cx="120" cy="125" r="2.6"/><circle cx="140" cy="125" r="2.6"/><circle cx="60" cy="210" r="3.6"/><circle cx="200" cy="200" r="3.2"/></g>
+    </svg>
+  </div>
+
+  <div class="lead-band">
+    <p>ORION-Air is on the architecture's roadmap, not yet under active procurement. <strong>The concept anticipates in-flight Starlink, aircrew TAK, and HDMI capture from existing imaging gear so search aircraft can stream position and imagery back to the mission base in real time.</strong> A handful of open questions need resolution before any procurement commitment.</p>
+    <div class="signoff"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary</span></div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-inner">
+    <div class="kicker">Concept Maturity</div>
+    <h2>Anticipated, <strong>not committed.</strong></h2>
+    <p class="lead">ORION-Air is included in the architecture because the design should anticipate it, not because it is ready to procure. Pricing is intentionally absent from the calculator. The kit will be specified with confidence once the open questions below are answered.</p>
+
+    <div class="opex-strip" style="margin-top: 1.4rem;">
+      <div class="opex-card">
+        <div class="kicker">Notional Components</div>
+        <h4>What it would include</h4>
+        <div class="lines">
+          Starlink Mini or equivalent terminal, mounted for the airframe<br>
+          UniFi Express or similar compact router<br>
+          Aircrew TAK tablet, charging dock, mount<br>
+          HDMI capture from existing imaging gear<br>
+          Power conditioning for the aircraft bus
+        </div>
+      </div>
+      <div class="opex-card">
+        <div class="kicker">Service-Plan Reality</div>
+        <h4>The economics question</h4>
+        <div class="lines">
+          Starlink Mini's plan tiers vary with ground speed. Above ~100 mph, in-motion service is billed at a higher rate.<br><br>
+          CAP search aircraft transit above that threshold, then slow to 90-110 knots once on station. Plan economics depend on the transit-vs-station ratio — this should be modeled before any recurring commitment.
+        </div>
+      </div>
+      <div class="opex-card">
+        <div class="kicker">Open Questions</div>
+        <h4>Resolve before procuring</h4>
+        <div class="lines">
+          Airframe mounting approach (per CAP airworthiness)<br>
+          In-motion service-plan economics for SAR profiles<br>
+          Integration with existing CAP avionics &amp; sensors<br>
+          Antenna placement &amp; signal interference
+        </div>
+        <div class="note">Tracked alongside the architecture's other open design questions.</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="pitch">
+        <div class="kicker">Status</div>
+        <h3>Concept only. <span class="alt">No procurement activity.</span></h3>
+        <p>No procurement decisions, no recurring service commitments, and no airworthiness applications are in progress for ORION-Air. The architecture is documented so the kit can be specified rapidly once the open questions are resolved.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Point of Contact</div>
+        <div class="name">SMSgt Luke Bunge, CAP</div>
+        <div class="role">Director of Information Technology<br>Michigan Wing Civil Air Patrol</div>
+        <div class="em"><a href="mailto:luke.bunge@miwg.cap.gov">luke.bunge@miwg.cap.gov</a></div>
+        <div class="cred">USAF Cyber Warfare Warrant Officer</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn-light" href="./">← All Kits</a>
+      <a class="btn btn-dark" href="../architecture.html">Read the Architecture →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><h5>Project ORION</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">A standardized network architecture for Civil Air Patrol field operations. Michigan Wing, Civil Air Patrol, U.S. Air Force Auxiliary.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="../">Overview</a></li><li><a href="./">The Kits</a></li><li><a href="../architecture.html">Architecture</a></li><li><a href="../calculator.html">Calculator</a></li><li><a href="../downloads.html">Downloads</a></li></ul></div>
+    <div><h5>Point of Contact</h5><p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">SMSgt Luke Bunge, CAP<br>Director of Information Technology<br>Michigan Wing Civil Air Patrol<br><a href="mailto:luke.bunge@miwg.cap.gov" style="color: var(--yellow);">luke.bunge@miwg.cap.gov</a></p></div>
+  </div>
+  <div class="footer-bottom"><span class="left">Volunteers Serving America's Communities</span><span>U.S. Air Force Auxiliary · 2026</span></div>
+</footer>
+
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

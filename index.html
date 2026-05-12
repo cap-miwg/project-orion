@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project ORION — One Network. Every Mission.</title>
+<meta name="description" content="A standardized network architecture for Civil Air Patrol field operations. Modular kits for trailer, base, fleet, and air, federated under one logical fabric.">
+<meta property="og:title" content="Project ORION">
+<meta property="og:description" content="One Network. Every Mission. A standardized digital backbone for Civil Air Patrol field operations.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-brand">
+      <span class="star">★</span>
+      <span>Project <span class="mark">ORION</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="./">Overview</a></li>
+      <li><a href="kits/">The Kits</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Field Operations Network Architecture</div>
+      <h1>PROJECT<br>ORION<span class="dot">.</span></h1>
+      <p class="deck"><strong>One network.</strong> Every mission. A standardized digital backbone for Civil Air Patrol field operations.</p>
+    </div>
+    <svg class="hero-constellation" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="rgba(255, 205, 0, 0.45)" stroke-width="0.6" fill="none">
+        <line x1="50" y1="40" x2="190" y2="55"/>
+        <line x1="50" y1="40" x2="100" y2="120"/>
+        <line x1="190" y1="55" x2="140" y2="125"/>
+        <line x1="100" y1="120" x2="120" y2="125"/>
+        <line x1="120" y1="125" x2="140" y2="125"/>
+        <line x1="100" y1="120" x2="60" y2="210"/>
+        <line x1="140" y1="125" x2="200" y2="200"/>
+      </g>
+      <g fill="rgba(255,205,0,0.15)">
+        <circle cx="50" cy="40" r="11"/>
+        <circle cx="60" cy="210" r="11"/>
+        <circle cx="190" cy="55" r="8"/>
+      </g>
+      <g fill="#fff">
+        <circle cx="50" cy="40" r="3.6"/>
+        <circle cx="190" cy="55" r="3.2"/>
+        <circle cx="100" cy="120" r="2.6"/>
+        <circle cx="120" cy="125" r="2.6"/>
+        <circle cx="140" cy="125" r="2.6"/>
+        <circle cx="60" cy="210" r="3.6"/>
+        <circle cx="200" cy="200" r="3.2"/>
+      </g>
+      <g fill="rgba(255,255,255,0.32)">
+        <circle cx="30" cy="80" r="0.8"/>
+        <circle cx="80" cy="60" r="0.8"/>
+        <circle cx="170" cy="100" r="0.8"/>
+        <circle cx="220" cy="160" r="0.8"/>
+        <circle cx="160" cy="180" r="0.8"/>
+        <circle cx="20" cy="160" r="0.8"/>
+        <circle cx="115" cy="180" r="0.8"/>
+        <circle cx="225" cy="80" r="0.8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="metrics">
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="num">5</div>
+        <div class="label">Kits</div>
+        <div class="desc">Modular by design. Core, Trailer, Base, Fleet, Air.</div>
+      </div>
+      <div class="metric">
+        <div class="num">1</div>
+        <div class="label">Network</div>
+        <div class="desc">One Wi-Fi credential. One dial plan. Every mission.</div>
+      </div>
+      <div class="metric">
+        <div class="num">0</div>
+        <div class="label">License Fees</div>
+        <div class="desc">No per-seat costs, no SaaS lock-in on the management plane.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lead-band">
+    <p>When a mission starts, the radios work. The data network does not, and someone scrambles to fix it. <strong>Every time.</strong> ORION ends the scramble: a federated mesh of standardized kits that connect every trailer, mission base, vehicle, aircraft, and field team under one logical fabric.</p>
+    <div class="signoff">
+      <span class="left">Volunteers Serving America's Communities</span>
+      <span>U.S. Air Force Auxiliary</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============== PREMISE ============== -->
+<section class="band">
+  <div class="band-inner">
+    <div class="kicker">The Premise</div>
+    <h2>Civil Air Patrol's voice and radio communications are mature. The data side has not <strong>kept pace.</strong></h2>
+    <p class="lead">Personal hotspots fail in rural areas. Wi-Fi coverage is fragmented. There is no shared file system, no consistent dashboards, and limited interoperability with partner agencies. ORION is an architecture of standardized kits, built on commercial UniFi networking and Starlink backhaul, that turns mission connectivity from an improvised setup into a Wing-wide capability.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <h4>Modular by default</h4>
+        <p>Each kit functions standalone and meshes seamlessly with others when colocated.</p>
+      </div>
+      <div class="principle">
+        <h4>One ecosystem</h4>
+        <p>UniFi for the network plane, Starlink for the WAN backhaul. No recurring license fees on the management plane.</p>
+      </div>
+      <div class="principle">
+        <h4>Federation, not centralization</h4>
+        <p>Each Wing runs its own controller and TAK server. Common naming, IP plan, and dial plan make multi-Wing missions work.</p>
+      </div>
+      <div class="principle">
+        <h4>Field-replaceable hardware</h4>
+        <p>Commercial off-the-shelf. No proprietary bus. No vendor lock-in beyond a single network family.</p>
+      </div>
+      <div class="principle">
+        <h4>Volunteer-supportable</h4>
+        <p>If a member with reasonable IT comfort can't deploy or troubleshoot the kit, the design has failed.</p>
+      </div>
+      <div class="principle">
+        <h4>Availability first</h4>
+        <p>CAP missions live or die on whether the network works when staff arrive on-scene, often in degraded conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== KITS ============== -->
+<section class="band alt" id="kits">
+  <div class="band-inner">
+    <div class="kicker">The Five Kits</div>
+    <h2>Modular by design. <strong>Federated by default.</strong></h2>
+    <p class="lead">Each kit is a complete, standalone capability. When two or more kits are colocated, they mesh into a single coherent network. Build the lineup incrementally — one node at a time, one Wing at a time.</p>
+
+    <table class="kits-roster">
+      <tr>
+        <td class="num">001</td>
+        <td class="name"><a href="kits/core.html">ORION-Core</a></td>
+        <td class="desc">Wing HQ controller and primary anchor for the architecture.</td>
+        <td class="stat progress"><span class="dot"></span>In Progress</td>
+      </tr>
+      <tr>
+        <td class="num">002</td>
+        <td class="name"><a href="kits/trailer.html">ORION-Trailer</a></td>
+        <td class="desc">Rapid-deploy mobile core in the comms trailer.</td>
+        <td class="stat tested"><span class="dot"></span>Field Tested</td>
+      </tr>
+      <tr>
+        <td class="num">003</td>
+        <td class="name"><a href="kits/base.html">ORION-Base</a></td>
+        <td class="desc">Mission base extension for staff in a building or hangar.</td>
+        <td class="stat proposed"><span class="dot"></span>Proposed</td>
+      </tr>
+      <tr>
+        <td class="num">004</td>
+        <td class="name"><a href="kits/fleet.html">ORION-Fleet</a></td>
+        <td class="desc">Every Wing vehicle becomes a network node with TAK tracking.</td>
+        <td class="stat proposed"><span class="dot"></span>Proposed</td>
+      </tr>
+      <tr>
+        <td class="num">005</td>
+        <td class="name"><a href="kits/air.html">ORION-Air</a></td>
+        <td class="desc">In-flight connectivity for live aerial imagery and TAK position.</td>
+        <td class="stat concept"><span class="dot"></span>Concept</td>
+      </tr>
+    </table>
+
+    <div class="btn-row">
+      <a class="btn btn-dark" href="calculator.html">Open the Calculator →</a>
+      <a class="btn btn-light" href="downloads.html">Download Brochures</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PATH FORWARD ============== -->
+<section class="band dark">
+  <div class="band-inner">
+    <div class="kicker">Path Forward</div>
+    <h2>Funded grassroots. <strong>Built to last.</strong></h2>
+    <p class="lead">Phase 1 stands up the architecture in Michigan Wing as the proof of concept. From there, results build the case for National engagement and a sustainable CAP-USAF line item. Standardized kits make every subsequent Wing's adoption faster, cheaper, and lower risk.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="architecture.html">Read the Architecture →</a>
+      <a class="btn btn-secondary" href="mailto:luke.bunge@miwg.cap.gov">Contact the PoC</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Project ORION</h5>
+      <p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">
+        A standardized network architecture for Civil Air Patrol field operations.
+        Michigan Wing, Civil Air Patrol, U.S. Air Force Auxiliary.
+      </p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="./">Overview</a></li>
+        <li><a href="kits/">The Kits</a></li>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Point of Contact</h5>
+      <p style="color: var(--silver); font-size: 0.85rem; line-height: 1.5;">
+        SMSgt Luke Bunge, CAP<br>
+        Director of Information Technology<br>
+        Michigan Wing Civil Air Patrol<br>
+        <a href="mailto:luke.bunge@miwg.cap.gov" style="color: var(--yellow);">luke.bunge@miwg.cap.gov</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="left">Volunteers Serving America's Communities</span>
+    <span>U.S. Air Force Auxiliary · 2026</span>
+  </div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+</body>
+</html>
