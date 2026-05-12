@@ -268,26 +268,18 @@ function wireQty(inputId, cb) {
 
 function onQtyChange(kitId, v) {
   state.qty[kitId] = v;
-  // Update each add-on's max cap inline (no full re-render → preserves focus).
+  // Cap any add-on quantities that exceed the new parent kit's max.
   const kit = KITS.find(k => k.id === kitId);
   kit.addons.forEach(a => {
     const newMax = addonAbsoluteMax(kit, a);
     if (state.addonQty[a.id] > newMax) state.addonQty[a.id] = newMax;
-    const input = document.getElementById('addon-' + a.id);
-    if (input) {
-      input.max = newMax;
-      input.value = state.addonQty[a.id];
-      input.disabled = newMax === 0;
-      const wrap = input.closest('.qty-control');
-      wrap.querySelectorAll('.qty-btn').forEach(b => { b.disabled = newMax === 0; });
-      const limit = wrap.parentElement.querySelector('.addon-limit');
-      if (limit) {
-        limit.innerHTML = (v === 0)
-          ? `<em>add ${kit.name} first</em>`
-          : `max ${newMax}`;
-      }
-    }
   });
+  // Full re-render. Buttons re-bind cleanly; max values, disabled states,
+  // and "max N" labels all reflect the new state in a single pass.
+  // The trade-off: typing into a kit qty input rebuilds the DOM on every
+  // keystroke, so focus is lost mid-typing. The +/- buttons remain the
+  // primary interaction and are unaffected.
+  renderKits();
   recalc();
 }
 
