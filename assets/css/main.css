@@ -358,7 +358,7 @@ section.band.dark {
   margin-bottom: 0.7rem;
 }
 section.dark .kicker { color: var(--yellow); }
-section.dark a { color: var(--yellow); }
+section.dark a:not(.btn) { color: var(--yellow); }
 
 h2 {
   font-size: clamp(1.6rem, 3.6vw, 2.4rem);
