@@ -27,9 +27,9 @@ const KITS = [
       {
         id: 'core-phones',
         name: 'Additional phones',
-        desc: 'G3 Touch Pro phone + PoE injector. Each phone adds another UniFi Talk line. Max 10 phones total per Core.',
-        oneTime: 207,
-        monthly: 9.99,
+        desc: 'UniFi G3 Touch Pro desktop phone, $199 each. Max 10 phones total per Core. Talk line cost not added here — add lines to suit your dial plan separately.',
+        oneTime: 199,
+        monthly: 0,
         type: 'qty',
         perKitMax: 9,
         scalingRule: {
@@ -99,21 +99,21 @@ const KITS = [
       {
         id: 'fleet-df',
         name: 'Direction finding',
-        desc: 'KrakenSDR + magnetic antenna set + Raspberry Pi 5. ELT bearings into ATAK.',
-        oneTime: 1200, monthly: 0, type: 'qty', perKitMax: 1
+        desc: 'KrakenSDR + magnetic antenna set + Raspberry Pi 5. ELT bearings into ATAK. Estimator counts one unit regardless of fleet size.',
+        oneTime: 1200, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1
       },
       {
         id: 'fleet-readyop',
         name: 'ReadyOp gateway',
-        desc: 'VHF base radio comms over IP. Procured through National.',
-        oneTime: 0, monthly: 0, type: 'qty', perKitMax: 1,
+        desc: 'VHF base radio comms over IP. Procured through National. Estimator counts one unit regardless of fleet size.',
+        oneTime: 0, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1,
         tag: 'rec', tagLabel: 'Recommended'
       },
       {
         id: 'fleet-suas',
         name: 'sUAS package',
-        desc: '32" display + lockable wall mount + awning + 1,000 W pure sine inverter. Vans only.',
-        oneTime: 1000, monthly: 0, type: 'qty', perKitMax: 1,
+        desc: '32" display + lockable wall mount + awning + 1,000 W pure sine inverter. Vans only. Estimator counts one unit regardless of fleet size.',
+        oneTime: 1000, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1,
         tag: 'rec', tagLabel: 'Vans only'
       }
     ]
@@ -144,7 +144,10 @@ const fmt = (n) => {
 };
 
 function addonPerKitMax(a) { return a.perKitMax != null ? a.perKitMax : 1; }
-function addonAbsoluteMax(kit, a) { return state.qty[kit.id] * addonPerKitMax(a); }
+function addonAbsoluteMax(kit, a) {
+  const raw = state.qty[kit.id] * addonPerKitMax(a);
+  return a.maxTotal != null ? Math.min(raw, a.maxTotal) : raw;
+}
 
 function switchesFor(kit, a) {
   if (!a.scalingRule) return 0;
