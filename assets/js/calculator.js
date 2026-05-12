@@ -99,21 +99,21 @@ const KITS = [
       {
         id: 'fleet-df',
         name: 'Direction finding',
-        desc: 'KrakenSDR + magnetic antenna set + Raspberry Pi 5. ELT bearings into ATAK. Estimator counts one unit regardless of fleet size.',
-        oneTime: 1200, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1
+        desc: 'KrakenSDR + magnetic antenna set + Raspberry Pi 5. ELT bearings into ATAK. One per vehicle.',
+        oneTime: 1200, monthly: 0, type: 'qty', perKitMax: 1
       },
       {
         id: 'fleet-readyop',
         name: 'ReadyOp gateway',
-        desc: 'VHF base radio comms over IP. Procured through National. Estimator counts one unit regardless of fleet size.',
-        oneTime: 0, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1,
+        desc: 'VHF base radio comms over IP. Procured through National. One per vehicle.',
+        oneTime: 0, monthly: 0, type: 'qty', perKitMax: 1,
         tag: 'rec', tagLabel: 'Recommended'
       },
       {
         id: 'fleet-suas',
         name: 'sUAS package',
-        desc: '32" display + lockable wall mount + awning + 1,000 W pure sine inverter. Vans only. Estimator counts one unit regardless of fleet size.',
-        oneTime: 1000, monthly: 0, type: 'qty', perKitMax: 1, maxTotal: 1,
+        desc: '32" display + lockable wall mount + awning + 1,000 W pure sine inverter. Vans only. One per vehicle.',
+        oneTime: 1000, monthly: 0, type: 'qty', perKitMax: 1,
         tag: 'rec', tagLabel: 'Vans only'
       }
     ]

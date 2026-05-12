@@ -895,20 +895,20 @@ section.dark p { color: rgba(255, 255, 255, 0.94); }
 .btn:hover { text-decoration: none; transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn-primary {
-  background: #fff;
+  background: var(--yellow);
   color: var(--navy);
   font-weight: 800;
   font-size: 1rem;
   padding: 0.95rem 1.5rem 0.95rem 1.3rem;
   border: none;
-  border-left: 5px solid var(--yellow);
+  border-left: 5px solid var(--navy);
   border-radius: 3px;
   box-shadow: 0 2px 0 rgba(5, 10, 48, 0.25);
 }
 .btn-primary:hover {
-  background: var(--yellow);
+  background: #fff;
   color: var(--navy);
-  border-left-color: var(--navy);
+  border-left-color: var(--yellow);
   box-shadow: 0 3px 0 rgba(5, 10, 48, 0.3);
 }
 .btn-secondary {
